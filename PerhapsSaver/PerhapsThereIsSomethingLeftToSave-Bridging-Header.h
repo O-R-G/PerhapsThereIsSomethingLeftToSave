@@ -9,6 +9,7 @@
 #ifndef PerhapsThereIsSomethingLeftToSave_Bridging_Header_h
 #define PerhapsThereIsSomethingLeftToSave_Bridging_Header_h
 
-#import "SunriseSunset.h"
+//#import "SunriseSunset.h"
+#import "DeviceLocation.h"
 
 #endif /* PerhapsThereIsSomethingLeftToSave_Bridging_Header_h */

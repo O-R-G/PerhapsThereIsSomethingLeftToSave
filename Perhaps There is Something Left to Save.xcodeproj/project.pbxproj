@@ -11,6 +11,8 @@
 		0758074421D580CA005DFC26 /* SunriseSunset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758074221D580CA005DFC26 /* SunriseSunset.m */; };
 		0758075621D92C61005DFC26 /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0758075421D92C61005DFC26 /* thumbnail.png */; };
 		0758075721D92C61005DFC26 /* thumbnail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0758075521D92C61005DFC26 /* thumbnail@2x.png */; };
+		07E4507122FFDE6F00F105DE /* Solar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4507022FFDE6F00F105DE /* Solar.swift */; };
+		07E45076230058DE00F105DE /* DeviceLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E45075230058DE00F105DE /* DeviceLocation.m */; };
 		7D05DAD21C4F64A8002494B1 /* SpriteScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05DAD11C4F64A8002494B1 /* SpriteScreenSaverView.swift */; };
 		7D88FCC91C52CB6300F193B8 /* SwiftScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D88FCC81C52CB6300F193B8 /* SwiftScreenSaverView.swift */; };
 		7DBA4A451C4F525E0015B53A /* SpriteScreenSaverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBA4A431C4F525E0015B53A /* SpriteScreenSaverScene.swift */; };
@@ -22,6 +24,9 @@
 		0758074721D581B7005DFC26 /* PerhapsThereIsSomethingLeftToSave-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PerhapsThereIsSomethingLeftToSave-Bridging-Header.h"; sourceTree = "<group>"; };
 		0758075421D92C61005DFC26 /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbnail.png; path = PerhapsSaver/thumbnail.png; sourceTree = "<group>"; };
 		0758075521D92C61005DFC26 /* thumbnail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thumbnail@2x.png"; path = "PerhapsSaver/thumbnail@2x.png"; sourceTree = "<group>"; };
+		07E4507022FFDE6F00F105DE /* Solar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solar.swift; sourceTree = "<group>"; };
+		07E450722300589B00F105DE /* DeviceLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceLocation.h; sourceTree = "<group>"; };
+		07E45075230058DE00F105DE /* DeviceLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceLocation.m; sourceTree = "<group>"; };
 		7D05DAD11C4F64A8002494B1 /* SpriteScreenSaverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteScreenSaverView.swift; sourceTree = "<group>"; };
 		7D88FCC81C52CB6300F193B8 /* SwiftScreenSaverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftScreenSaverView.swift; sourceTree = "<group>"; };
 		7DBA4A431C4F525E0015B53A /* SpriteScreenSaverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteScreenSaverScene.swift; sourceTree = "<group>"; };
@@ -64,8 +69,11 @@
 				0758074721D581B7005DFC26 /* PerhapsThereIsSomethingLeftToSave-Bridging-Header.h */,
 				0758074121D580CA005DFC26 /* SunriseSunset.h */,
 				0758074221D580CA005DFC26 /* SunriseSunset.m */,
+				07E450722300589B00F105DE /* DeviceLocation.h */,
+				07E45075230058DE00F105DE /* DeviceLocation.m */,
 				7D88FCC81C52CB6300F193B8 /* SwiftScreenSaverView.swift */,
 				7DBA4A431C4F525E0015B53A /* SpriteScreenSaverScene.swift */,
+				07E4507022FFDE6F00F105DE /* Solar.swift */,
 				7D05DAD11C4F64A8002494B1 /* SpriteScreenSaverView.swift */,
 				7DF063F91C4F4BE800AA20DF /* Info.plist */,
 			);
@@ -156,7 +164,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E4507122FFDE6F00F105DE /* Solar.swift in Sources */,
 				7DBA4A451C4F525E0015B53A /* SpriteScreenSaverScene.swift in Sources */,
+				07E45076230058DE00F105DE /* DeviceLocation.m in Sources */,
 				0758074421D580CA005DFC26 /* SunriseSunset.m in Sources */,
 				7D05DAD21C4F64A8002494B1 /* SpriteScreenSaverView.swift in Sources */,
 				7D88FCC91C52CB6300F193B8 /* SwiftScreenSaverView.swift in Sources */,

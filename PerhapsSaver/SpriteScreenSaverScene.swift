@@ -9,6 +9,7 @@
 import SpriteKit
 import ScreenSaver
 import Cocoa
+import CoreLocation
 
 struct CircleProperties {
     var max = 0.0
@@ -37,7 +38,7 @@ class SpriteScreenSaverScene: SKScene
     var slicesTotal = Int(SSRandomFloatBetween(200.0, 300.0))
     var waveCounter = 0
     
-    let sunriseSunsetObj : SunriseSunset = SunriseSunset()
+    var solar : Solar? = nil
     
     override func didMove(to view: SKView)
 	{
@@ -51,7 +52,21 @@ class SpriteScreenSaverScene: SKScene
 	
     override func update(_ currentTime: TimeInterval)
 	{
-        let sunSwitch = sunriseSunsetObj.checkTime()
+        let sunrise = solar!.sunrise!
+        let sunset = solar!.sunset!
+        let now = Date()
+        var sunSwitch = -1
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        // NSLog("SS NEW SUNRISE: %@, NEW SUNSET: %@", formatter.string(from: sunrise), formatter.string(from: sunset))
+        // NSLog("SS NOW: %@", formatter.string(from: now))
+        
+        if (now > sunrise && now < sunset) {
+            sunSwitch = 1
+        } else {
+            sunSwitch = 0
+        }
+        
         if (sunSwitch == -1) {
             return
         }
@@ -136,7 +151,11 @@ class SpriteScreenSaverScene: SKScene
     }
     
     func initValues() {
-        sunriseSunsetObj.start()
+        let locationObj = DeviceLocation()
+        locationObj.start()
+        self.solar = Solar(coordinate: CLLocationCoordinate2D.init(latitude: locationObj.getLat(), longitude: locationObj.getLong()))
+        // NSLog("SS LAT: %f, LONG: %f", locationObj.getLat(), locationObj.getLong())
+        
         for i in 0..<numPoints {
             circleCenters[i].x = self.frame.size.width / 2
             circleCenters[i].y = self.frame.size.height / 2

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
     int sunsetValue;
     
     // VARIABLES FOR SUNRISE SUNSET
-    double pie;
+    double pi;
     double tpi;
     double degs;
     double rads;

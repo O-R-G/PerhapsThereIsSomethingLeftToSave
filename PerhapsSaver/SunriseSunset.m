@@ -79,21 +79,20 @@
         if (self->gmtDelta < 0) self->gmtDelta *= -1;
         
         [self computeSunriseSunset: (double)self->latitude : (double)self->longitude: (double)self->gmtDelta];
+
         
     }];
     
 }
 
-
 - (void) computeSunriseSunset: (double) latit : (double) longit : (double) tzone
 {
     double y,m,day,h;
 //    NSLog(@"Lat: %f, Long: %f, TZ: %f", latit, longit, tzone);
-    
     // INIT VALUES
     sunriseValue = 0;
     sunsetValue = 2399;
-    pie = M_PI;
+    pi = M_PI;
     tpi = 2 * M_PI;
     degs = 180.0/M_PI;
     rads = M_PI/180.0;
@@ -108,23 +107,23 @@
     m = p->tm_mon + 1;
     day = p->tm_mday;
     h = 12;
-    
+
     double d = [ self FNday: (int)y: (int)m: (int)day: h ];
     double lambda = [ self FNsun: d ];
     double obliq = 23.439 * rads - .0000004 * rads * d;
     double alpha = atan2(cos(obliq) * sin(lambda), cos(lambda));
     double delta = asin(sin(obliq) * sin(lambda));
     double LL = L - alpha;
-    if (L < pie) LL += tpi;
+    if (L < pi) LL += tpi;
     double equation = 1440.0 * (1.0 - LL / tpi);
     double ha = [ self f0: latit: delta ];
     double hb = [ self f1: latit: delta ];
     double twx = hb - ha;
-    twx = 12.0 * twx/pie;
+    twx = 12.0 * twx/pi;
     daylen = degs * ha/7.5;
     if (daylen<0.0001) {daylen = 0.0;}
-    double riset = 12.0 - 12.0 * ha/pie + tzone - longit/15.0 + equation/60.0;
-    double settm = 12.0 + 12.0 * ha/pie + tzone - longit/15.0 + equation/60.0;
+    double riset = 12.0 - 12.0 * ha/pi + tzone - longit/15.0 + equation/60.0;
+    double settm = 12.0 + 12.0 * ha/pi + tzone - longit/15.0 + equation/60.0;
     double altmax = 90.0 + delta * degs - latit;
     if (latit < delta * degs) altmax = 180.0 - altmax;
     double twam = riset - twx;
@@ -133,8 +132,8 @@
     //double noont = riset + 12.0 * ha/pi;
     if (riset > 24.0) riset-= 24.0;
     if (settm > 24.0) settm-= 24.0;
-    
-    
+
+
     // SET GLOBAL SUNRISE AND SUNSET VALUES
     sunriseValue = [self getHrMnValue: twam];
     sunsetValue = [self getHrMnValue: settm];
@@ -166,7 +165,7 @@
     dfo = rads*(0.5*SunDia + AirRefr); if (lat < 0.0) dfo = -dfo;
     fo = tan(declin + dfo) * tan(lat*rads);
     if (fo>0.99999) fo=1.0; // to avoid overflow //
-    fo = asin(fo) + pie/2.0;
+    fo = asin(fo) + pi/2.0;
     return fo;
 }
 
@@ -178,7 +177,7 @@
     df1 = rads * 6.0; if (lat < 0.0) df1 = -df1;
     fi = tan(declin + df1) * tan(lat*rads);
     if (fi>0.99999) fi=1.0; // to avoid overflow //
-    fi = asin(fi) + pie/2.0;
+    fi = asin(fi) + pi/2.0;
     return fi;
 }
 
