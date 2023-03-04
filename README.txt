@@ -2,7 +2,7 @@
 
 Perhaps There is Something Left to Save
 Designed by David Reinfurt
-Version 1.1, macOS 10.12+, 2018
+Version 1.2, 2023
 
 --
 
